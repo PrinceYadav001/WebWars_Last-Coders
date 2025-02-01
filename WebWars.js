@@ -37,3 +37,42 @@
         }
 
         animate();
+        const yearElement = document.getElementById("year");
+const yearText = "2025";
+let index = 0;
+let isDeleting = false;
+
+function rewriteEffect() {
+    if (!isDeleting && index <= yearText.length) {
+        yearElement.textContent = yearText.substring(0, index);
+        index++;
+    } else if (isDeleting && index >= 0) {
+        yearElement.textContent = yearText.substring(0, index);
+        index--;
+    }
+
+    if (!isDeleting && index === yearText.length) {
+        setTimeout(() => isDeleting = true, 1000);
+    } else if (isDeleting && index === 0) {
+        isDeleting = false;
+    }
+
+    setTimeout(rewriteEffect, isDeleting ? 100 : 200);
+}
+
+rewriteEffect();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const speakers = document.querySelectorAll(".speaker");
+
+    speakers.forEach(speaker => {
+        speaker.addEventListener("mouseenter", () => {
+            speaker.style.transform = "scale(1.1)";
+        });
+
+        speaker.addEventListener("mouseleave", () => {
+            speaker.style.transform = "scale(1)";
+        });
+    });
+});

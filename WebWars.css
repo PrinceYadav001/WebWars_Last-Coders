@@ -199,3 +199,65 @@ footer {
 footer p {
   margin-bottom: 1rem;
 }
+
+
+.speakers-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.speaker {
+    position: relative;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.speaker:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.speaker img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: filter 0.3s ease-in-out;
+}
+
+.speaker:hover img {
+    filter: brightness(50%);
+}
+
+.speaker-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.speaker:hover .speaker-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.speaker h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.speaker p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
